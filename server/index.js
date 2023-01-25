@@ -24,5 +24,17 @@ app.use(cors());
 // Routes
 app.use("/client", clientRoutes);
 app.use("/general", generalRoutes);
-app.use("/management", mangementRoutes);
+app.use("/management", managementRoutes);
 app.use("/sales", salesRoutes);
+
+// Mongoosse Setup
+const PORT = process.env.PORT || 9000;
+mongoose
+  .connect(process.env.MONGO_URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    app.listen(PORT, () => console.log(`Server port ${PORT}`));
+  })
+  .catch((err) => console.log(`${err} Did not connect`));
