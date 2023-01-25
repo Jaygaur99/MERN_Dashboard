@@ -4,6 +4,7 @@ import { themeSettings } from "./theme";
 import { useSelector } from "react-redux";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useMemo } from "react";
+import Layout from "./scenes/layout";
 import Dashboard from "./scenes/dashboard";
 
 function App() {
